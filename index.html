@@ -340,7 +340,7 @@
               data-aos="fade-up"
             >
               <div class="f-row">
-                <div class="w50 w-990-100">
+                <div class="w100">
                   <div class="form-grp">
                     <p class="form-label" for="name">Name</p>
                     <input
@@ -376,21 +376,33 @@
                     />
                   </div>
                 </div>
+                <div class="w100">
+                  <div class="form-textarea-group">
+                    <p class="form-label" for="message">Write a message</p>
+                    <textarea
+                      type="text"
+                      class="form-field"
+                      id="message"
+                      name="message"
+                    ></textarea>
+                  </div>
+                </div>
               </div>
               <button class="button">Submit</button>
             </form>
+
+            <!-- Toaster Starts -->
+            <div class="toaster" id="toaster">
+              Thank you! Your message has been sent. We will get back to you
+              soon.
+            </div>
+            <!-- Toaster Ends -->
           </div>
         </div>
       </section>
       <!--Contact Ends -->
     </main>
     <!-- Main Container Ends -->
-
-    <!-- Toaster Starts -->
-    <div class="toaster" id="toaster">
-      Thank you! Your message has been sent. We will get back to you soon.
-    </div>
-    <!-- Toaster Ends -->
 
     <footer id="footer"></footer>
     <!-- Footer Ends -->
@@ -414,7 +426,10 @@
     <!-- Swiper JS Ends-->
 
     <!-- EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
 
     <script>
       (function () {

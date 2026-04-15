@@ -1998,6 +1998,7 @@ button:focus {
   line-height: 1.3;
   padding: 15px 16px;
   resize: none;
+  border-radius: 14px;
 }
 /* Password View */
 .form-grp.int-padl input,
