@@ -206,6 +206,30 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <a
+                  href="https://daily.wallofvox.com/"
+                  target="_blank"
+                  class="client-box"
+                >
+                  <div class="client-logo">
+                    <img src="./img/clients/daily.svg" alt="" />
+                  </div>
+                  <p>Daily</p>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a
+                  href="https://www.wallofvox.com/"
+                  target="_blank"
+                  class="client-box"
+                >
+                  <div class="client-logo">
+                    <img src="./img/clients/wov.svg" alt="" />
+                  </div>
+                  <p>Wall of Vox</p>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a
                   href="https://paramfinvest.com/"
                   target="_blank"
                   class="client-box"
@@ -332,71 +356,67 @@
                 </div>
               </div>
             </div>
-            <form
-              method="post"
-              action=""
-              id="contactForm"
-              class="contact-form"
-              data-aos="fade-up"
-            >
-              <div class="f-row">
-                <div class="w100">
-                  <div class="form-grp">
-                    <p class="form-label" for="name">Name</p>
-                    <input
-                      class="form-field"
-                      type="text"
-                      id="full-name"
-                      name="name"
-                      required
-                    />
+            <div class="contact-form">
+              <form method="post" action="" id="contactForm" data-aos="fade-up">
+                <div class="f-row">
+                  <div class="w100">
+                    <div class="form-grp">
+                      <p class="form-label" for="name">Name</p>
+                      <input
+                        class="form-field"
+                        type="text"
+                        id="full-name"
+                        name="name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="w50 w-990-100">
+                    <div class="form-grp">
+                      <p class="form-label" for="email">Email</p>
+                      <input
+                        class="form-field"
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="w50 w-990-100">
+                    <div class="form-grp">
+                      <p class="form-label" for="number">Phone Number</p>
+                      <input
+                        class="form-field"
+                        type="tel"
+                        id="phone-number"
+                        name="number"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="w100">
+                    <div class="form-textarea-group">
+                      <p class="form-label" for="message">Write a message</p>
+                      <textarea
+                        type="text"
+                        class="form-field"
+                        id="message"
+                        name="message"
+                      ></textarea>
+                    </div>
                   </div>
                 </div>
-                <div class="w50 w-990-100">
-                  <div class="form-grp">
-                    <p class="form-label" for="email">Email</p>
-                    <input
-                      class="form-field"
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="w50 w-990-100">
-                  <div class="form-grp">
-                    <p class="form-label" for="number">Phone Number</p>
-                    <input
-                      class="form-field"
-                      type="tel"
-                      id="phone-number"
-                      name="number"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="w100">
-                  <div class="form-textarea-group">
-                    <p class="form-label" for="message">Write a message</p>
-                    <textarea
-                      type="text"
-                      class="form-field"
-                      id="message"
-                      name="message"
-                    ></textarea>
-                  </div>
-                </div>
-              </div>
-              <button class="button">Submit</button>
-            </form>
+                <button class="button">Submit</button>
+              </form>
 
-            <!-- Toaster Starts -->
-            <div class="toaster" id="toaster">
-              Thank you! Your message has been sent. We will get back to you
-              soon.
+              <!-- Toaster Starts -->
+              <div class="card-hdn thank-you" style="display: none">
+                Thank you! Your message has been sent. We will get back to you
+                soon.
+              </div>
+              <!-- Toaster Ends -->
             </div>
-            <!-- Toaster Ends -->
           </div>
         </div>
       </section>
@@ -446,17 +466,14 @@
             function (response) {
               console.log("SUCCESS!", response.status, response.text);
 
-              // Show toaster
-              const toasterBox = document.querySelector(".toaster-box");
-              toasterBox.classList.add("show");
+              const contactForm = document.getElementById("contactForm");
+              const thankYouMessage = document.querySelector(".thank-you");
 
-              // Reset form
-              document.getElementById("contactForm").reset();
+              contactForm.style.display = "none";
+              thankYouMessage.style.display = "block";
 
-              // Hide toaster after 4 seconds
-              setTimeout(function () {
-                toasterBox.classList.remove("show");
-              }, 4000);
+              // Reset form in case it is shown again later
+              contactForm.reset();
             },
             function (error) {
               console.error("FAILED...", error);
